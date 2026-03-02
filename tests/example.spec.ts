@@ -12,7 +12,7 @@ test.beforeAll(async () => {
     res.end(`<h1>Cookie: ${cookie}</h1>`);
   });
   await new Promise<void>((resolve) => {
-    server.listen(0, "127.0.0.1", () => {
+    server.listen(0, "0.0.0.0", () => {
       port = (server.address() as any).port;
       resolve();
     });
