@@ -1,16 +1,15 @@
 services:
-  # The "app" service — initially IPv4 only, like pre-fix flex
+  # The "app" service — initially IPv4 only
   server:
     build:
       context: .
       target: server
-    command: node server.js 0.0.0.0   # Change to "::" to test the fix
     healthcheck:
       test: ["CMD", "wget", "-qO-", "http://127.0.0.1:3000"]
       interval: 2s
       retries: 5
 
-  # Test container shares the server's loopback — exactly like flex
+  # Test container shares the server's loopback
   test:
     build:
       context: .

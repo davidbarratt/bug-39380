@@ -12,9 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: docker/setup-buildx-action@v3
-      - name: Build images
-        run: docker compose build
+      - run: docker compose build
       - run: docker compose up server -d --wait
       - run: docker compose run --name playwright-test --no-deps test
       - if: ${{ !cancelled() }}

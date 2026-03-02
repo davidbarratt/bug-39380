@@ -1,5 +1,5 @@
 const http = require("http");
-const host = process.argv[2] ?? "0.0.0.0";
+const host = process.argv[2] ?? "::";
 const server = http.createServer((req, res) => {
   const cookie = req.headers.cookie ?? "(none)";
   res.writeHead(200, { "Content-Type": "text/html" });
